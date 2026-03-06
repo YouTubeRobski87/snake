@@ -1,0 +1,107 @@
+:root {
+  --bg: #f4f6f8;
+  --panel: #ffffff;
+  --line: #ced4da;
+  --text: #212529;
+  --snake: #2f9e44;
+  --food: #e03131;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+}
+
+.app {
+  max-width: 520px;
+  margin: 0 auto;
+  padding: 1.25rem;
+}
+
+h1 {
+  margin: 0 0 0.75rem;
+  font-size: 1.5rem;
+}
+
+.hud,
+.actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0.75rem 0;
+}
+
+.hud p {
+  margin: 0;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(20, 1fr);
+  width: min(90vw, 480px);
+  aspect-ratio: 1 / 1;
+  border: 1px solid var(--line);
+  background: var(--panel);
+}
+
+.cell {
+  border: 1px solid #edf0f2;
+}
+
+.cell.snake {
+  background: var(--snake);
+}
+
+.cell.food {
+  background: var(--food);
+}
+
+button {
+  border: 1px solid var(--line);
+  background: var(--panel);
+  color: var(--text);
+  font: inherit;
+  padding: 0.4rem 0.7rem;
+  cursor: pointer;
+}
+
+.controls {
+  margin-top: 1rem;
+  display: grid;
+  gap: 0.5rem;
+  grid-template-columns: repeat(3, minmax(68px, 1fr));
+}
+
+.controls [data-direction="UP"] {
+  grid-column: 2;
+}
+
+.controls [data-direction="LEFT"] {
+  grid-column: 1;
+}
+
+.controls [data-direction="DOWN"] {
+  grid-column: 2;
+}
+
+.controls [data-direction="RIGHT"] {
+  grid-column: 3;
+}
+
+.hint {
+  font-size: 0.9rem;
+  margin-top: 0.75rem;
+}
+
+@media (min-width: 720px) {
+  .controls {
+    max-width: 250px;
+  }
+}
